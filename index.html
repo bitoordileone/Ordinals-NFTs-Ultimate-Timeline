@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.css" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #710000; /* Background color */
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Sans-Serif font */
+        }
+        
+        #openseadragon {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .openseadragon-container .navigator, .openseadragon-container .controls {
+            display: none; /* Hide the small viewer and navigation buttons */
+        }
+    </style>
+</head>
+<body>
+    <div id="openseadragon"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.js"></script>
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
+            tileSources: {
+                type: 'image',
+                url: 'info1.jpg',
+                buildPyramid: false
+            },
+            showNavigator: false, // Hide the small viewer
+            gestureSettingsMouse: {
+                scrollToZoom: true
+            },
+            defaultZoomLevel: 0.5, // Start zoomed out
+            minZoomLevel: 0.5,
+            maxZoomLevel: 10
+        });
+    </script>
+</body>
+</html>
